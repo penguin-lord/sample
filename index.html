@@ -1,0 +1,363 @@
+<html>
+<head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: flex;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    background-color: #0080fe;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.menu {
+    display: none;
+    z-index: 3;
+    position: absolute; 
+    background-image: linear-gradient(45deg, blue, dodgerblue);
+    flex-direction: column;
+    padding: 15px;
+    top: 130px; 
+    left: 10px; 
+    border-radius: 5px;
+}
+.menu a {
+text-decoration: none;
+padding: 15px;
+color: white;
+}
+.menu a:hover {
+background-color: #333;
+}
+.hamburger {
+    flex-direction: column;
+    display: flex;
+    position: sticky;
+    top: 10px; 
+    left: 10px; 
+    cursor: pointer;
+    z-index: 4;
+    gap: 5px;
+}
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease, opacity 0.3s;
+    }
+#menu-toggle {
+    display: none;
+}
+#menu-toggle:checked + label .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+#menu-toggle:checked + label .bar:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked + label .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+#menu-toggle:checked ~ .menu {
+    display: flex;
+}
+.logo-container {
+    display: flex;
+    align-items: center; /* Vertically align image and text */
+    margin-left: 10px; /* Ensure it's on the left side */
+    gap: 10px; /* Add spacing between the image and the text */
+}
+.logo ,img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+.logo-text {
+    font-size: 2em;
+    font-weight: italic;
+    color: white;
+}
+.hero-image {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("hero.jpg") center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-text {
+    text-align: center;
+    color: white;
+}
+.hero-text h1 {
+    font-size: 3em;
+    margin: 0;
+    animation: rainbow 6s linear infinite;
+}
+.hero-text p {
+    font-size: 1.5em;
+    margin-top: 10px;
+    animation: rainbow 6s linear infinite;
+}
+@keyframes rainbow {
+    25% {color: Dodgerblue;}
+    45% {color: yellow;}
+    65% {color: white;}
+    85% {color: #0083ff;}
+    100% {color: indigo;}
+}
+/* Common Section Styles */
+.section {
+    text-align: center;
+    padding: 50px;
+    background-image: linear-gradient(45deg, white, #85ffbd, #fffb7d);
+}
+.section h2 {
+    font-size: 2.8em;
+    padding: 15px 15px;
+    color: blue;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/* Item (Product/Service) Styles */
+.items {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+.item {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 500px;
+    height: 400px;
+}
+.item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(1);
+    transition: filter 0.3s ease;
+}
+.item:hover img { 
+    filter: brightness(0.8);
+}
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+}
+.item:hover .item-overlay {
+    opacity: 1;
+}
+.item-overlay h3 {
+    color: #fff;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+.item-overlay p {
+    color: #ddd;
+    font-size: 1em;
+    text-align: center;
+}
+            .bottom-section {
+                background-color: #FFFDD0;
+                padding: 0;
+                margin: 0;
+                height: 50%; 
+            }
+            .imgko {
+             border-radius:50% ;
+             width: 300PX;
+            height: 300PX; 
+            }
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                height: 90%;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 18px;
+                color: black;
+                text-align: left;
+            }   
+            a {
+                padding: 20px 20px;
+                border: 2px solid blue;
+                text-decoration: none;
+                color: black;
+                font-size: 18px; 
+           }
+           a:hover {
+            background-color: blue;
+            color: white;
+            transition: 1s ease;
+           }
+           footer {
+            background-color: #555;
+            padding: 20px 20px;
+            color: white;
+            font-size: 15px;
+           }
+          .footer {
+            background-color: #333;
+            padding: 10px 10px;
+            color: white;
+            text-align: center;  
+           }
+</style>
+</head>
+<body>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>Welcome To SmartShop Online</h1>
+        <p>Your Trusted & Reliable E-Commerce Site For Your Needs</p>
+    </div>
+</div>
+<div class="navbar">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </label>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="logo-container">
+        <img src="hero.jpg" alt="Logo" >
+        <span class="logo-text">SmartShop</span>
+    </div>
+</div>
+<!-- Products Section -->
+<div class="section">
+    <h2>Our Featured Products</h2>
+    <div class="items">
+         <!--Product Holder--
+         <div class="item">
+            <img src="#" alt="#">
+            <div class="item-overlay">
+                <h3>Lorem Ipsum dolor quis</h3>
+                <p>Lorem Ipsum Dolor Quis Sit mihi </p>
+        </div>
+    </div> -->
+        <!-- Product 1 -->
+        <div class="item">
+            <img src="drill.jfif" alt="Drill" >
+            <div class="item-overlay">
+                <h3>Drill</h3>
+                <p>High-quality, durable, and perfect for all your drilling needs.</p>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="item">
+            <img src="welding.jfif" alt="Welding Machine">
+            <div class="item-overlay">
+                <h3>Welding Machine</h3>
+                <p>Reliable and efficient. Ideal for professional and home use.</p>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="item">
+            <img src="grinder.jfif" alt="Tool Kit">
+            <div class="item-overlay">
+                <h3>Angle Grinder</h3>
+                <p>Best for Cutting with Ease.</p>
+            </div>
+            </div>
+            <!--Product 4-->
+            <div class="item">
+                <img src="pliers.jfif" alt="Pliers">
+                <div class="item-overlay">
+                    <h3>Pliers</h3>
+                    <p>High-quality pliers for all your cutting</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div class="section">
+    <h2>Our Services</h2>
+    <div class="items">
+        <!-- Service 1 -->
+        <div class="item">
+            <img src="computer.jpg" alt="Service 1">
+            <div class="item-overlay">
+                <h3>Computer System Service </h3>
+                <p>Increadible Services that Satisfy You With Our Expertise.</p>
+            </div>
+        </div>
+        <!-- Service 2 -->
+        <div class="item">
+            <img src="electrical.jfif" alt="Service 2">
+            <div class="item-overlay">
+                <h3>electrical Services</h3>
+                <p>Ensure Quality Services with our Electrical Works</p>
+            </div>
+        </div>
+        <!-- Services Holder---
+        <div class="item">
+            <img src="service3.jpg" alt="Service 3">
+            <div class="item-overlay">
+                <h3>Service 3</h3>
+                <p>Customized solutions tailored to you.</p>
+            </div>
+        </div>  -->
+    </div>
+</div>
+<div class="bottom-section">  
+    <table>
+        <tr>
+            <td style="text-align: center;"><img src="hero.jpg" alt="about" class="imgko"></td>
+            <td><b><font size="5px" face="verdana"><span>About Us</span></font></b>
+            <br><p style="margin-bottom: 15px; font-size: 25px;">
+    
+                <i>Welcome To SmartShop Website</i><br><br>
+                We, the sovereign Filipino people, imploring the aid of Almighty God, in order to build a just and humane<br>
+                society, and establish a Government that shall embody our ideals and aspirations, promote the common good,<br>
+                conserve and develop our patrimony, and secure to ourselves and our posterity, the blessings of...
+            </p>
+    <br><br>
+            <a href="about.html" >Read More</a>
+            <br><br>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <br><br><br><br><br>
+    <footer>
+        <h2>Contact Us</h1>
+        <p>Sto Tomas St. Sampaloc Manila</p>
+        <p>Gmail: selegnajd@gmail.com</p>
+        <p>Tel #: 012-3456-789</p>
+    </footer>
+    <div class="footer">
+       Designed & Developed By: John Daniel D. Angeles
+    </div>
+</body>
+</html>
